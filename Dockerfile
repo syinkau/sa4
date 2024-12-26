@@ -28,7 +28,7 @@ RUN chmod +x /app/main.sh
 
 # Copy startup script
 COPY run.sh /app/run.sh
-RUN chmod +x /app/main.sh
+RUN chmod +x /app/run.sh
 
 # Set environment variables for Heroku compatibility
 ENV PORT=8080
