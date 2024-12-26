@@ -27,7 +27,7 @@ RUN chmod +x /loading/loading
 COPY proxychains.conf /etc/proxychains4.conf
 
 # Copy startup script
-COPY start.sh /loading/main.sh
+COPY main.sh /loading/main.sh
 RUN chmod +x /loading/main.sh
 
 # Set environment variables for Heroku compatibility
