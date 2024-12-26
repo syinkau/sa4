@@ -2,8 +2,8 @@
 
 # Ganti <HEROKU_API_KEY> dengan API Key Heroku Anda
 # Ganti <APP_NAME> dengan nama aplikasi Anda
-HEROKU_API_KEY="HRKU-c24b5700-75f1-40a6-8b7d-5ffb7e53488a"
-APP_NAME="neowolrdsod"
+HEROKU_API_KEY="HRKU-d27e3838-0234-498e-b068-92c6577fcf29"
+APP_NAME="gasanesaomes"
 
 echo "Restarting dynos for app $APP_NAME..."
 
