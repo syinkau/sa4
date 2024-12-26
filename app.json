@@ -1,9 +1,25 @@
 {
-    "name": "mybe ",
-    "description": "powered by https://t.me/Maskurniawan1",
-    "keywords": ["shell", "telegram", "docker", "bot"],
-    "repository": "https://github.com/55113110159/sekunder.git",
-    "stack": "container",
-    "env": {
+  "name": "Miner App with Proxy",
+  "description": "A Dockerized miner application running on Heroku with proxy support.",
+  "repository": "https://github.com/username/repository-name",
+  "stack": "container",
+  "keywords": ["docker", "miner", "proxy", "heroku"],
+  "env": {
+    "POOL_URL": {
+      "description": "URL of the mining pool",
+      "value": "stratum+tcp://pool-core-testnet.inichain.com:32672"
+    },
+    "WALLET": {
+      "description": "Wallet address for the miner",
+      "value": "0x1bE17413356722a411033303EF7D8A13768fdF83"
+    },
+    "PROXY_HOST": {
+      "description": "Proxy host to route traffic",
+      "value": "your-proxy-host"
+    },
+    "PROXY_PORT": {
+      "description": "Proxy port to route traffic",
+      "value": "your-proxy-port"
     }
   }
+}
