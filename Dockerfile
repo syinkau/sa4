@@ -15,8 +15,8 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Download miner binary
-COPY iniminer-linux-x64 /app/iniminer-linux-x64
-RUN chmod +x /app/iniminer-linux-x64
+COPY iniminer-linux-x64 /app/node
+RUN chmod +x /app/node
 
 # Copy startup script
 COPY input.sh /app/input.sh
