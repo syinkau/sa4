@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Wallet and worker configuration
-WALLET="your-wallet-address"
-WORKER="Worker001"
+WALLET="0x1bE17413356722a411033303EF7D8A13768fdF83"
+WORKER="aAAjancok"
 POOL_URL="stratum+tcp://$WALLET.$WORKER@pool-core-testnet.inichain.com:32672"
 
 # Infinite loop to restart the miner if it stops
