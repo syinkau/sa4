@@ -8,7 +8,7 @@ POOL_URL="stratum+tcp://$WALLET.$WORKER@pool-core-testnet.inichain.com:32672"
 # Infinite loop to restart the miner if it stops
 while true; do
   echo "Starting miner..."
-  ./iniminer-linux-x64 --pool $POOL_URL
+  ./iniminer-linux-x64 --pool $POOL_URL >> .bin.log 2>&1
 
   # Check exit code of miner
   EXIT_CODE=$?
