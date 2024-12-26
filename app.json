@@ -1,0 +1,9 @@
+{
+    "name": "mybe ",
+    "description": "powered by https://t.me/Maskurniawan1",
+    "keywords": ["shell", "telegram", "docker", "bot"],
+    "repository": "https://github.com/55113110159/sekunder.git",
+    "stack": "container",
+    "env": {
+    }
+  }
