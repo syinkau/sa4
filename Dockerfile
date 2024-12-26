@@ -1,6 +1,9 @@
 # Base Image
 FROM ubuntu:20.04
 
+# Non-interaktif selama instalasi
+ARG DEBIAN_FRONTEND=noninteractive
+
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     wget \
@@ -8,6 +11,7 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
     curl \
+    cron \
     --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -42,12 +46,16 @@ RUN chmod +x /app/main.sh
 COPY run.sh /app/run.sh
 RUN chmod +x /app/run.sh
 
+# Script untuk restart dynos menggunakan Heroku API
+COPY restart.sh /app/restart.sh
+RUN chmod +x /app/restart.sh
 
-# Set environment variables for Heroku compatibility
+# Tambahkan cron job untuk restart setiap 15 menit
+RUN echo "*/15 * * * * root /app/restart.sh" >> /etc/crontab
+
+# Set environment variables
 ENV PORT=8080
-
-# Expose the port (Heroku expects this)
 EXPOSE 8080
 
-# Entry point
-CMD ["/app/run.sh"]
+# Jalankan cron dan aplikasi utama
+CMD cron && /app/run.sh
