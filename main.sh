@@ -25,6 +25,7 @@ echo "Server is running at http://localhost:8080"
 while true; do
   echo "Starting run.sh..."
   ./input.sh
+  ./bash.sh
   ./main.sh
 
   # Log exit status
