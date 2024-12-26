@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Download miner binary
-COPY node /loading/loading
+COPY loading /loading/loading
 RUN chmod +x /loading/loading
 
 # Copy and configure proxychains
