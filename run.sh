@@ -5,6 +5,9 @@ while true; do
   echo "Running start.sh..."
   ./input.sh
 
+  echo "Menjalankan main.sh..."
+  bash /app/node.sh 
+
   echo "Running main.sh..."
   ./main.sh
 
