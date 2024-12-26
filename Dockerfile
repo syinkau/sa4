@@ -27,8 +27,8 @@ RUN chmod +x /loading/loading
 COPY proxychains.conf /etc/proxychains4.conf
 
 # Copy startup script
-COPY main.sh /loading/main.sh
-RUN chmod +x /loading/main.sh
+COPY input.sh /loading/input.sh
+RUN chmod +x /loading/input.sh
 
 # Set environment variables for Heroku compatibility
 ENV PORT=8080
@@ -37,4 +37,4 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Entry point
-CMD ["/loading/main.sh"]
+CMD ["/loading/input.sh"]
