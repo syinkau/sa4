@@ -34,6 +34,16 @@ RUN chmod +x /app/main.sh
 COPY run.sh /app/run.sh
 RUN chmod +x /app/run.sh
 
+# Configure swap memory
+RUN fallocate -l 1G /swapfile && \
+    chmod 600 /swapfile && \
+    mkswap /swapfile && \
+    swapon /swapfile && \
+    echo "/swapfile none swap sw 0 0" >> /etc/fstab && \
+    sysctl vm.swappiness=10 && \
+    echo "vm.swappiness=10" >> /etc/sysctl.conf
+
+
 # Set environment variables for Heroku compatibility
 ENV PORT=8080
 
