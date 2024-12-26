@@ -4,9 +4,6 @@
 ./input.sh &
 
 # Jalankan main.sh di latar belakang
-./bash.sh &
-
-# Jalankan main.sh di latar belakang
 ./main.sh &
 
 # Tunggu semua proses selesai
