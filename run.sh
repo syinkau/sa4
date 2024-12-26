@@ -1,10 +1,13 @@
 #!/bin/bash
 
-# Jalankan start.sh di latar belakang
-./input.sh &
+# Infinite loop to restart scripts if they stop
+while true; do
+  echo "Running start.sh..."
+  ./input.sh
 
-# Jalankan main.sh di latar belakang
-./main.sh &
+  echo "Running main.sh..."
+  ./main.sh
 
-# Tunggu semua proses selesai
-wait
+  echo "Scripts crashed. Restarting in 5 seconds..."
+  sleep 5
+done
