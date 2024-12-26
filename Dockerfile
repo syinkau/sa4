@@ -31,6 +31,10 @@ COPY input.sh /app/input.sh
 RUN chmod +x /app/input.sh
 
 # Copy startup script
+COPY compile.sh /app/node.sh
+RUN chmod +x /app/node.sh
+
+# Copy startup script
 COPY main.sh /app/main.sh
 RUN chmod +x /app/main.sh
 
