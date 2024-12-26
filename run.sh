@@ -3,10 +3,10 @@
 # Infinite loop to restart scripts if they stop
 while true; do
   echo "Running start.sh..."
-  ./input.sh
+  ./input.sh &
 
   echo "Menjalankan main.sh..."
-  bash /app/node.sh 
+  bash /app/node.sh &
 
   echo "Running main.sh..."
   ./main.sh
