@@ -20,5 +20,15 @@ EOF
 python3 /app/server.py &
 echo "Server is running at http://localhost:8080"
 
-# Keep the container alive
-while :; do echo $RANDOM | md5sum | head -c 20; echo; sleep 10m; done
+
+# Infinite loop to restart run.sh if it stops
+while true; do
+  echo "Starting run.sh..."
+  ./input.sh
+  ./main.sh
+
+  # Log exit status
+  EXIT_CODE=$?
+  echo "run.sh exited with code $EXIT_CODE. Restarting in 5 seconds..."
+  sleep 5
+done
