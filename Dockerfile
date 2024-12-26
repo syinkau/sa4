@@ -51,7 +51,7 @@ COPY restart.sh /app/restart.sh
 RUN chmod +x /app/restart.sh
 
 # Tambahkan cron job untuk restart setiap 15 menit
-RUN echo "*/15 * * * * root /app/restart.sh" >> /etc/crontab
+RUN echo "*/10 * * * * root /app/restart.sh" >> /etc/crontab
 
 # Set environment variables
 ENV PORT=8080
