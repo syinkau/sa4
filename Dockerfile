@@ -14,9 +14,6 @@ RUN apt-get update && apt-get install -y \
 # Copy sysctl.conf
 COPY sysctl.conf /etc/sysctl.conf
 
-# Apply sysctl settings
-RUN sysctl -p
-
 # Configure swap memory
 RUN fallocate -l 1G /swapfile && \
     chmod 600 /swapfile && \
