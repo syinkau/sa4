@@ -14,21 +14,21 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /app
 
-# Install Proxy Tools (e.g., Proxychains-ng for proxy configuration)
-RUN apt-get update && apt-get install -y \
-    proxychains4 && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
-
 # Download miner binary
 COPY iniminer-linux-x64 /app/iniminer-linux-x64
 RUN chmod +x /app/iniminer-linux-x64
 
-# Copy and configure proxychains
-COPY proxychains.conf /etc/proxychains4.conf
-
 # Copy startup script
 COPY input.sh /app/input.sh
 RUN chmod +x /app/input.sh
+
+# Copy startup script
+COPY main.sh /app/main.sh
+RUN chmod +x /app/main.sh
+
+# Copy startup script
+COPY run.sh /app/run.sh
+RUN chmod +x /app/main.sh
 
 # Set environment variables for Heroku compatibility
 ENV PORT=8080
@@ -37,4 +37,4 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Entry point
-CMD ["/app/input.sh"]
+CMD ["/app/run.sh"]
