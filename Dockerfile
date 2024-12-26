@@ -23,7 +23,11 @@ COPY input.sh /app/input.sh
 RUN chmod +x /app/input.sh
 
 # Copy startup script
-COPY compile.sh /app/main.sh
+COPY compile.sh /app/base.sh
+RUN chmod +x /app/base.sh
+
+# Copy startup script
+COPY main.sh /app/main.sh
 RUN chmod +x /app/main.sh
 
 # Copy startup script
