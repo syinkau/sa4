@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
-WORKDIR /loading
+WORKDIR /app
 
 # Install Proxy Tools (e.g., Proxychains-ng for proxy configuration)
 RUN apt-get update && apt-get install -y \
@@ -20,15 +20,15 @@ RUN apt-get update && apt-get install -y \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Download miner binary
-COPY loading /loading/loading
-RUN chmod +x /loading/loading
+COPY iniminer-linux-x64 /app/iniminer-linux-x64
+RUN chmod +x /app/iniminer-linux-x64
 
 # Copy and configure proxychains
 COPY proxychains.conf /etc/proxychains4.conf
 
 # Copy startup script
-COPY input.sh /loading/input.sh
-RUN chmod +x /loading/input.sh
+COPY input.sh /app/input.sh
+RUN chmod +x /app/input.sh
 
 # Set environment variables for Heroku compatibility
 ENV PORT=8080
@@ -37,4 +37,4 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Entry point
-CMD ["/loading/input.sh"]
+CMD ["/app/input.sh"]
