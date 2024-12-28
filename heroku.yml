@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: /app/run.sh
+  web: /usr/local/bin/run.sh
