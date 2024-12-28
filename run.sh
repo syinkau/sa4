@@ -1,22 +1,16 @@
 #!/bin/bash
 
-# Infinite loop to restart scripts if they stop
-while true; do
-  echo "Running start.sh..."
-  ./input.sh &
+# Start cron service
+service cron start
 
-  echo "Menjalankan node.sh..."
-  bash /app/node.sh &
+# Jalankan main.sh di background
+/usr/local/bin/input.sh &
 
-  echo "Running main.sh..."
-  ./main.sh
+# Jalankan bash.sh di background
+bash /usr/local/bin/node.sh &
 
-  echo "Berikan jeda waktu 15 detik..."
-  sleep 15
-  
-  echo "Start cron service..."
-  service cron start
-  
-  echo "Scripts crashed. Restarting in 5 seconds..."
-  sleep 5
-done
+# Jalankan bash.sh di background
+/usr/local/bin/main.sh &
+
+# Tunggu semua proses selesai
+wait
