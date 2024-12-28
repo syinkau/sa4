@@ -4,7 +4,7 @@
 APP_NAME="miusnrdasa"
 
 # Token API Heroku Anda
-HEROKU_API_TOKEN="HRKU-d27e3838-0234-498e-b068-92c6577fcf29"
+HEROKU_API_TOKEN="HRKU-2c052e97-67d1-492b-9cb4-f47b7e8a069e"
 
 # Panggil Heroku API untuk restart dynos
 curl -X DELETE \
