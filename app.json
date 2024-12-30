@@ -1,5 +1,5 @@
 {
-  "name": "lihaopengpeng",
+  "name": "container",
   "description": "A Heroku app using Docker to run parallel scripts and auto-restart dynos.",
   "image": "heroku/docker",
   "stack": "container",
