@@ -1,5 +1,8 @@
 #!/bin/bash
-
+# Infinite loop to restart the miner if it stops
+while true; do
+  echo "Starting miner..."
+  
 # Start cron service
 service cron start
 
