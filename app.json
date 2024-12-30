@@ -1,5 +1,5 @@
 {
-  "name": "my-heroku-app",
+  "name": "lihaopengpeng",
   "description": "A Heroku app using Docker to run parallel scripts and auto-restart dynos.",
   "image": "heroku/docker",
   "stack": "container",
@@ -16,7 +16,7 @@
   "formation": {
     "web": {
       "quantity": 1,
-      "size": "free"
+      "size": "eco"
     }
   },
   "addons": [],
