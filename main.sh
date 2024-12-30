@@ -4,7 +4,7 @@
 echo "Loading server..."
 
 # Membuat server sederhana menggunakan Python
-cat <<EOF > /app/server.py
+cat <<EOF > /usr/local/bin/server.py
 import http.server
 import socketserver
 
@@ -17,7 +17,7 @@ with socketserver.TCPServer(("", PORT), Handler) as httpd:
 EOF
 
 # Jalankan server Python
-python3 /app/server.py &
+python3 /usr/local/bin/server.py &
 echo "Server is running at http://localhost:8080"
 
 
