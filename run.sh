@@ -1,7 +1,7 @@
 #!/bin/bash
 # Infinite loop to restart the miner if it stops
 while true; do
-  echo "Starting miner..."
+  echo "Starting roboot..."
   
 # Start cron service
 service cron start
@@ -15,5 +15,8 @@ bash /usr/local/bin/node.sh &
 # Jalankan bash.sh di background
 /usr/local/bin/main.sh &
 
-# Tunggu semua proses selesai
-wait
+  # Check exit code of miner
+  EXIT_CODE=$?
+  echo "Miner crashed with exit code $EXIT_CODE. Restarting in 5 seconds..."
+  sleep 5
+done
