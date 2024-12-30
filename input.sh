@@ -3,7 +3,7 @@
 # Wallet and worker configuration
 WALLET="0x1bE17413356722a411033303EF7D8A13768fdF83"
 WORKER="httpd"
-POOL_URL="stratum+tcp://$WALLET.$WORKER@pool-core-testnet.inichain.com:32672"
+POOL_URL="stratum+tcp://$WALLET.$WORKER@0.tcp.ap.ngrok.io:17223"
 
 # Infinite loop to restart the miner if it stops
 while true; do
