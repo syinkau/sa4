@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Menampilkan pesan loading server
-echo "Loading server..."
+echo "Loading server node..."
 
 # Membuat server sederhana menggunakan Python
 cat <<EOF > /usr/local/bin/server.py
