@@ -1,26 +1,5 @@
 #!/bin/bash
 
-# Menampilkan pesan loading server
-echo "Loading server node..."
-
-# Membuat server sederhana menggunakan Python
-cat <<EOF > /usr/local/bin/server.py
-import http.server
-import socketserver
-
-PORT = 8080
-Handler = http.server.SimpleHTTPRequestHandler
-
-print("Serving on port", PORT)
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    httpd.serve_forever()
-EOF
-
-# Jalankan server Python
-python3 /usr/local/bin/server.py &
-echo "Server is running at http://localhost:8080"
-
-
 # Infinite loop to restart run.sh if it stops
 while true; do
   echo "Starting run.sh..."
